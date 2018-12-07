@@ -1,0 +1,17 @@
+{"employees":[
+        {
+            "ID" : "00000001",
+            "firstName" : "Steez",
+            "lastName" : "McQueez",
+            "position" : "CEO",
+            "location" : "Hotlanta"
+        },
+        {
+            "ID" : "00000002",
+            "firstName" : "Steex",
+            "lastName" : "McQueexCorp",
+            "position" : "CISO",
+            "location" : "Hotlanta"
+        }
+    ]
+}
