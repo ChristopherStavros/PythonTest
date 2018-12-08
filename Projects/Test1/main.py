@@ -1,28 +1,24 @@
-import json
-import csv
-import os
+import json, csv, os
 
-f = open("E:/Files/Docs/GitHub/PythonTest/Data/test1.json", "r+")
+jsonFile = open("E:/Files/Docs/GitHub/PythonTest/Data/test1.json", "r+")
 lst = []
-fileData = json.load(f)
+fileData = json.load(jsonFile)
 #print("Employees")
 #print(fileData["employees"])
 
 for key in fileData:
-    for e in fileData[key]:
-        #print(e)
-        #print(e["ID"])
-        if(e["firstName"]=="Steez" and e["lastName"]=="McQueez"):
-            e["species"] = "strigoi"
+    for record in fileData[key]:
+        if(record["firstName"]=="Steez" and record["lastName"]=="McQueez"):
+            record["species"] = "strigoi"
         else:
-            e["species"] = "vampire"
-        lst.append(e)
+            record["species"] = "vampire"
+        lst.append(record)
          
-f.seek(0)
-json.dump(fileData, f, indent=4)
-f.truncate()
+jsonFile.seek(0)
+json.dump(fileData, jsonFile, indent=4)
+jsonFile.truncate()
 
-f.close
+jsonFile.close
 
 #print list derived from json data
 print(lst)
