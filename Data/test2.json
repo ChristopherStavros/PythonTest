@@ -1,0 +1,20 @@
+{
+    "employees": [
+        {
+            "ID": "00000003",
+            "firstName": "Scro",
+            "lastName": "McScro",
+            "position": "Worker",
+            "location": "Hotlanta",
+            "species": "vampire"
+        },
+        {
+            "ID": "00000004",
+            "firstName": "Mister",
+            "lastName": "CheesySteezySneasel",
+            "position": "Worker",
+            "location": "Hotlanta",
+            "species": "vampire"
+        }
+    ]
+}
