@@ -58,6 +58,8 @@ def combine_json(filePath1, filePath2):
     print("Merged")
     print(merged_dict2)
     print(type(merged_dict2))
+    print(type(merged_dict2["executives"]))
+    print(type(merged_dict2["executives"][1]))
     print(type(merged_dict2["executives"][1]["ID"]))
     print(merged_dict2["executives"][1])
 
