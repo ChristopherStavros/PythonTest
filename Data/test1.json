@@ -1,7 +1,7 @@
 {
     "executives": [
         {
-            "ID": "00000001",
+            "ID": 1,
             "firstName": "Steez",
             "lastName": "McQueez",
             "position": "CEO",
@@ -9,7 +9,7 @@
             "species": "strigoi"
         },
         {
-            "ID": "00000002",
+            "ID": 2,
             "firstName": "Mister",
             "lastName": "CheesySneasel",
             "position": "CISO",

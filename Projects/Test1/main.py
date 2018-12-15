@@ -22,7 +22,7 @@ def update_json_data(filePath1):
             lst.append(record)
 
     #write to json file       
-    jsonFile.seek(0)
+    jsonFile.seek(0) 
     json.dump(fileData, jsonFile, indent=4)
     jsonFile.truncate()
 
@@ -57,6 +57,9 @@ def combine_json(filePath1, filePath2):
 
     print("Merged")
     print(merged_dict2)
+    print(type(merged_dict2))
+    print(type(merged_dict2["executives"][1]["ID"]))
+    print(merged_dict2["executives"][1])
 
     jsonFile.close
     jsonFile2.close
@@ -68,4 +71,9 @@ def main():
     return
 
 if __name__ == '__main__':
-    globals()[sys.argv[1]]()
+    from sys import argv
+    command = argv[1]
+    if command == "combine_json":
+        combine_json(filePath1, filePath2)
+
+    

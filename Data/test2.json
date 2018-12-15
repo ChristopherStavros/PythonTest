@@ -1,7 +1,7 @@
 {
     "employees": [
         {
-            "ID": "00000003",
+            "ID": 3,
             "firstName": "Scro",
             "lastName": "McScro",
             "position": "Worker",
@@ -9,7 +9,7 @@
             "species": "vampire"
         },
         {
-            "ID": "00000004",
+            "ID": 4,
             "firstName": "Mister",
             "lastName": "CheesySteezySneasel",
             "position": "Worker",
