@@ -4,6 +4,7 @@ import json, csv, os
 filePath1 = "C:/_Repositories/PythonTest/Data/test1.json"
 filePath2 = "C:/_Repositories/PythonTest/Data/test2.json"
 filePath3 = "C:/_Repositories/PythonTest/Data/test1.csv"
+filePath4 = "C:/_Repositories/PythonTest/Data/employees.json"
 
 ###########
 # functions
@@ -71,28 +72,26 @@ def combine_json(filePath1, filePath2):
     return
 
 def combine_data(filePath1, filePath2, filePath3):
+    # get JSON data from files
     jsonFile = open(filePath1, "r+")
     fileData = json.load(jsonFile)
-
     jsonFile2 = open(filePath2, "r+")
     fileData2 = json.load(jsonFile2)
 
-    csvFile1 = open(filePath3)
-    fileData3 = csv.DictReader(csvFile1)
-    print(type(fileData3))
-    
-    newDict = {}
-    for row in fileData3:
-       newDict.update(dict(row))
+    # get data from csv and format for JSON
+    with open(filePath3) as csvFile1:
+        fileData3 = csv.DictReader(csvFile1)
+        newList = []
+        for dct in map(dict,fileData3):
+            newList.append(dct)
+    contractors = {"contractors":newList}
 
-    contractors = {"contractors":[newDict]}
+    # merge data
+    merged_dict3 = {**fileData, **fileData2, **contractors}
 
-
-    print(newDict)
-    print(type(newDict))
-
-    merged_dict3 = {**fileData, **fileData2, **contractors}  
-    print(merged_dict3)
+    # write to JSON file
+    with open(filePath4, 'w') as outfile:
+        json.dump(merged_dict3, outfile, indent=4)
     return  
 
 def main():

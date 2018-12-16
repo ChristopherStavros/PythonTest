@@ -1,0 +1,56 @@
+{
+    "executives": [
+        {
+            "ID": 1,
+            "firstName": "Steez",
+            "lastName": "McQueez",
+            "position": "CEO",
+            "location": "Hotlanta",
+            "species": "strigoi"
+        },
+        {
+            "ID": 2,
+            "firstName": "Mister",
+            "lastName": "CheesySneasel",
+            "position": "CISO",
+            "location": "Hotlanta",
+            "species": "vampire"
+        }
+    ],
+    "employees": [
+        {
+            "ID": 3,
+            "firstName": "Scro",
+            "lastName": "McScro",
+            "position": "Worker",
+            "location": "Hotlanta",
+            "species": "vampire"
+        },
+        {
+            "ID": 4,
+            "firstName": "Mister",
+            "lastName": "CheesySteezySneasel",
+            "position": "Worker",
+            "location": "Hotlanta",
+            "species": "vampire"
+        }
+    ],
+    "contractors": [
+        {
+            "ID": "5",
+            "firstName": "Foggy",
+            "lastName": "Bottom",
+            "position": "Contractor",
+            "location": "Hotlanta",
+            "species": "human"
+        },
+        {
+            "ID": "6",
+            "firstName": "Soggy",
+            "lastName": "Bottom",
+            "position": "Contractor",
+            "location": "Hotlanta",
+            "species": "human"
+        }
+    ]
+}
