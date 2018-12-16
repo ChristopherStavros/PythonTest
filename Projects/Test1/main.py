@@ -3,6 +3,8 @@ import json, csv, os
 #variables
 filePath1 = "C:/_Repositories/PythonTest/Data/test1.json"
 filePath2 = "C:/_Repositories/PythonTest/Data/test2.json"
+filePath3 = "C:/_Repositories/PythonTest/Data/test1.csv"
+
 ###########
 # functions
 ###########
@@ -68,6 +70,31 @@ def combine_json(filePath1, filePath2):
 
     return
 
+def combine_data(filePath1, filePath2, filePath3):
+    jsonFile = open(filePath1, "r+")
+    fileData = json.load(jsonFile)
+
+    jsonFile2 = open(filePath2, "r+")
+    fileData2 = json.load(jsonFile2)
+
+    csvFile1 = open(filePath3)
+    fileData3 = csv.DictReader(csvFile1)
+    print(type(fileData3))
+    
+    newDict = {}
+    for row in fileData3:
+       newDict.update(dict(row))
+
+    contractors = {"contractors":[newDict]}
+
+
+    print(newDict)
+    print(type(newDict))
+
+    merged_dict3 = {**fileData, **fileData2, **contractors}  
+    print(merged_dict3)
+    return  
+
 def main():
     update_json_data(filePath1)
     return
@@ -77,5 +104,7 @@ if __name__ == '__main__':
     command = argv[1]
     if command == "combine_json":
         combine_json(filePath1, filePath2)
+    if command == "combine_data":
+        combine_data(filePath1, filePath2, filePath3)
 
     
