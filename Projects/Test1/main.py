@@ -1,4 +1,4 @@
-import json, csv, os
+import json, csv, sys
 
 #variables
 filePath1 = "C:/_Repositories/PythonTest/Data/test1.json"
@@ -92,18 +92,23 @@ def combine_data(filePath1, filePath2, filePath3):
     # write to JSON file
     with open(filePath4, 'w') as outfile:
         json.dump(merged_dict3, outfile, indent=4)
+
+    # output message to screen
+    print("The DATA has been combined")
+
     return  
 
 def main():
     update_json_data(filePath1)
     return
 
-if __name__ == '__main__':
-    from sys import argv
-    command = argv[1]
+if len(sys.argv) == 2:
+    command = sys.argv[1]
     if command == "combine_json":
         combine_json(filePath1, filePath2)
     if command == "combine_data":
         combine_data(filePath1, filePath2, filePath3)
+else:
+    combine_json(filePath1, filePath2)
 
     
