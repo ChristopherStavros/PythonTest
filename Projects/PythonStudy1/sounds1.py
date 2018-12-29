@@ -14,14 +14,20 @@ bright_green = (0,255,0)
 #Media
 song = 'C:\\_Repositories\\PythonTest\\Projects\\PythonStudy1\\Erazer2.mp3'
 image = 'C:\\_Repositories\\PythonTest\\Projects\\PythonStudy1\\FullSizeRender.jpg'
+#Screen
+screen = pygame.display.set_mode ( (800, 600) )
+background = pygame.image.load(image)
 
 ###########
 #Functions
 ###########
 
 def setBackGround():
-    bg = pygame.image.load(image)
-    screen.blit(bg, (0, 0))
+    screen.blit(background, (0, 0))
+
+def loadSong():
+    pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
+    pygame.mixer.music.load(song)
 
 def setWhite():
     screen.fill(white)
@@ -51,13 +57,11 @@ def drawRect(color):
 ###############
 
 #Load screen
-screen = pygame.display.set_mode ( (800, 600) )
-bg = pygame.image.load(image)
-screen.blit(bg, (0, 0))
+setBackGround()
 
 #Setup screen and load song
-pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=4096)
-pygame.mixer.music.load(song)
+loadSong()
+#talk('Calibrating...the nozzle.')
 
 #########
 #EVENTS
@@ -81,7 +85,6 @@ while True:
             #PLAY
             elif event.key == pygame.K_p:
                 if not pygame.mixer.music.get_busy():
-                    talk('Calibrating...the nozzle.')
                     pygame.mixer.music.play()
                     setRandom()
             #STOP
