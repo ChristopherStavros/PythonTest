@@ -1,0 +1,1 @@
+@py.exe "%~dp0/webbrowser_examples.py" %*

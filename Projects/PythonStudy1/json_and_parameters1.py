@@ -45,7 +45,7 @@ def update_json_data(filePath1):
     #print("Pure json data")
     #print(fileData)
     #cleanup
-    jsonFile.close
+    jsonFile.close()
     return fileData, lst
 
 
@@ -73,7 +73,7 @@ def combine_json(filePath1, filePath2):
 
 def combine_data(filePath1, filePath2, filePath3):
     # get JSON data from files
-    jsonFile = open(filePath1, "r+")
+    jsonFile = open(filePath1, "r+") #r+ means read and write
     fileData = json.load(jsonFile)
     jsonFile2 = open(filePath2, "r+")
     fileData2 = json.load(jsonFile2)
@@ -102,6 +102,7 @@ def main():
     update_json_data(filePath1)
     return
 
+#PARAMETERS
 if len(sys.argv) == 2:
     command = sys.argv[1]
     if command == "combine_json":
@@ -109,6 +110,7 @@ if len(sys.argv) == 2:
     if command == "combine_data":
         combine_data(filePath1, filePath2, filePath3)
 else:
+    #run the combine_json function if no parameters are passed to the script
     combine_json(filePath1, filePath2)
 
     
