@@ -30,6 +30,20 @@ print(os.getcwd())
 docx structure
 ---'document' object contains 'paragraph' objects
 ---'paragraph' object contains 'run' objects
+------------
+.Document()
+.paragraphs
+.runs
+--------
+.text
+.underline
+.bold
+.italic
+.style
+-----
+.save()
+.add_paragraph()
+add_runs()
 '''
 d = docx.Document('demo.docx')
 #print(type(d)) # <class 'docx.document.Document'>
@@ -42,7 +56,48 @@ for i in d.paragraphs:
     #print(type(i)) # <class 'docx.text.paragraph.Paragraph'>
     print(i.text)
 
+p = d.paragraphs[1]
 
+print(p.runs) # list of run objects
+for i in p.runs:
+    print(i.text)
+    print(i.bold)
+    print(i.italic)
+    print(i.underline)
+
+p.runs[3].underline = True
+p.runs[3].text = 'Italic and underlined.'
+d.save('demo_modified.docx')
+
+print(p.style)
+p.style = 'Title'
+d.save('demo_modified2.docx')
+
+#############
+# NEW DOCX
+#############
+
+d = docx.Document()
+d.add_paragraph('Hello this is a paragraph.')
+d.add_paragraph('Hello this is another paragraph.')
+d.save('demo4.docx')
+p = d.paragraphs[0]
+p.add_run('This is a new run.')
+p.runs[1].bold = True
+d.save('demo4_modified1.docx')
+
+####################
+# Get TEXT FUNCTION
+####################
+
+def getText(filename):
+    doc = docx.Document(filename)
+    fullText = []
+    for para in doc.paragraphs:
+        fullText.append(para.text) #appends paragraph text to list
+    return '\n'.join(fullText) #returns a single string
+
+print(getText('demo.docx'))
 
 
 

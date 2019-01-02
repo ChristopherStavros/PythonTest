@@ -1,4 +1,10 @@
-import pygame, os, webbrowser, time, sys, random, pyttsx3
+import pygame, os, webbrowser, time, sys, random, pyttsx3, pyautogui
+
+#CENTER SCREEN
+
+#os.environ['SDL_VIDEO_CENTERED'] = '1'
+position = 0, 30
+os.environ['SDL_VIDEO_WINDOW_POS'] = str(position[0]) + "," + str(position[1])
 
 ############
 #VARIABLES
@@ -15,7 +21,8 @@ bright_green = (0,255,0)
 song = 'C:\\_Repositories\\PythonTest\\Projects\\PythonStudy1\\Erazer2.mp3'
 image = 'C:\\_Repositories\\PythonTest\\Projects\\PythonStudy1\\FullSizeRender.jpg'
 #Screen
-screen = pygame.display.set_mode ( (800, 600) )
+
+screen = pygame.display.set_mode (pyautogui.size(),pygame.RESIZABLE )
 background = pygame.image.load(image)
 
 ###########
