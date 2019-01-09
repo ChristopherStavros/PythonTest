@@ -81,22 +81,6 @@
     "Get the %s, now." % (stuff)
     ```
 
-- Lists
-
-    ```python
-        lst =  [0, 1, 2, 3, 4]
-
-        for l in lst:
-            print(l)
-    ```
-
-- Get length of list or string
-
-    ```python
-        lst =  [0, 1, 2, 3, 4]
-        len(lst)
-    ```
-
 - Booleans
 
     ```python
@@ -168,6 +152,28 @@
         #more string methods include rstrip(), lstrip(), rjust(), ljust()
     ```
 
+- Lists
+
+    ```python
+        lst =  [0, 1, 2, 3, 4]
+
+        for l in lst:
+            print(l)
+
+        # append a value to the list, in place
+        # does not return a value
+        lst.append(5)
+
+        # sum() will add list items together... must be numeric values
+        print(sum([1 , 3,  5]))
+    ```
+
+- Get length of list or string
+
+    ```python
+        lst =  [0, 1, 2, 3, 4]
+        len(lst)
+    ```
 - List comprehension
     
     A good blog post https://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
@@ -222,14 +228,19 @@
 - Dictionaries
 
     ```python
-    stuff = {'id':3, 'thing':4}
-    stuff1 = {'id1':3, 'thing1':4}
+    stuff = {'id': 3, 'thing': 4}
+    stuff1 = {'id1': 3, 'thing1': 4}
     stuff.update(stuff1)
     print(stuff) # {'id': 3, 'thing': 4, 'id1': 3, 'thing1': 4}
 
     #Dictionary methods
     stuff.keys()
     stuff.values()
+    stuff.items()
+
+    # iterate through dictionary
+    for key, value in stuff.items():
+        
     ```
 
 - Dictionary comprehension
@@ -241,6 +252,9 @@
 - Sets
 
     ```python
+    # initialize an empty set
+      y = set() # Cannot initialize like {}
+
     # items cannot repeat in a set -- if added, they will be ignored
     x = {1 , 2, 3, 4, 4}
     print(x) # {1, 2, 3, 4}
@@ -251,4 +265,12 @@
 
     # add value
     x.add(9)
+
+    # code block using sets and len method
+    values = set()
+    while len(values) < 6:
+        values.add(random.randint(1,20))
     ```
+
+- Set comprehension
+    - Basically identical to list comprehension except result is a set

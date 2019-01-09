@@ -1,0 +1,1 @@
+print(calculate_average_marks(s))
