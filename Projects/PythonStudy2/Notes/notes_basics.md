@@ -1,276 +1,331 @@
 # Part 1 - Basics
 
-- IDLE is Python shell
-- Comments
-     ```python
-        # Single Line
-    ```
-    ```python
-        #Single or multi-line
-        ''' Block ''' 
-        """ Block """
-     ```
+## Comments
 
-- Multi-line String
+```python
+# Single Line
 
-    ```python
-    #Simlar to muli-line comment - can use """  or '''
-    x = '''
+#Single or multi-line
+''' Block ''' 
+""" Block """
+```
 
-    Hello 
+## Multi-line String
 
-    '''
-    ```
+```python
+#Simlar to muli-line comment - can use """  or '''
+x = '''
 
-- Basic math
-    ```python
-    >>> 2 + 3
-    5
-    >>> 2 * 3
-    6
-    >>> 2 ** 3
-    8
-    ```
-- Variables and multiple variable assignment
+Hello
 
-    ```python
-    age = 105
-    days = age * 365
+'''
+```
 
-    #Multiple assignment
-    x, y = 1, 2
+## Basic math
 
-    def returnTwoValues():
-        return 1, 2
+```python
+>>> 2 + 3
+5
+>>> 2 * 3
+6
+>>> 2 ** 3
+8
+```
 
-    x, y = returnTwoValues()
+## Variables and multiple variable assignment
 
-    ```
-- type()
-    ```python
-    >>> type(days)
-    <class 'int'>
-    >>> type(str(days))
-    <class 'str'>
-    >>>
-    ```
-- type conversion
-    - str(5)
-    - int("5")
-    ```python
-    >>> print("There are " + str(days) + " days.")
-    There are 1825 days.
-    ```
-- input()
-    ```python
-    stuff = input("What is your input:  ")
-    ```
+```python
+age = 105
+days = age * 365
 
-- String formatting
-    ```python
-    stuff = "info"
-    "Get the {}, now.".format(stuff)
-    "Get the {0}, now.".format(stuff)
-    "Get the {stuff}, now.".format(stuff = stuff)
-    ```
+#Multiple assignment
+x, y = 1, 2
 
-- Conversion specifier
+def returnTwoValues():
+    return 1, 2
 
-    ```python
-    stuff = "info"
-    "Get the %s, now." % (stuff)
-    ```
+x, y = returnTwoValues()
 
-- Booleans
+```
 
-    ```python
-        1 <= 5
-        True
+## type()
 
-        1 != 1
-        False
-    ```
+```python
+>>> type(days)
+<class 'int'>
+>>> type(str(days))
+<class 'str'>
 
-- Conditionals...using in keyword as well as booleans
+```
 
-    ```python
-        if "ab" in "abcd":
-            print("Pattern found")
-        elif(1 >= 100):
-            print("This code will never be reached")
+## type conversion
 
-        Pattern found
+```python
+# Convert an int to a string
+str(5)
 
-        lst =  [0, 1, 2, 3, 4]
-        if 3 in lst:
-            print("Got it")
+# Convert a string to an int
+int("5")
 
-        Got it
-    ```
+ print("There are " + str(days) + " days.")
+There are 1825 days.
+```
 
-- range()
+## input()
 
-    ```python
-        for i in range(5): #1-5
-            print(i)
+```python
+stuff = input("What is your input:  ")
+```
 
-        for i in range(2,5): #2-5
-            print(i)
+## String formatting
 
-        for i in range(1,10,2): #start at 1, end at 10, and iterate by 2
-            print(i)
-    ```
+```python
+stuff = "info"
+"Get the {}, now.".format(stuff)
+"Get the {0}, now.".format(stuff)
+"Get the {stuff}, now.".format(stuff = stuff)
+```
 
-- Random numbers
+## Conversion specifier
 
-    ```python
-        import random
-        random.randint(1,100)
-    ```
+```python
+stuff = "info"
+"Get the %s, now." % (stuff)
+```
 
-- String methods
+## Booleans
 
-    ```python
-        #String are immutable! (cannot be changed)
+```python
+1 <= 5
+True
 
-        #Split
-        lst = "1,2,3,4,5".split(",") # ['1', '2', '3', '4', '5']
+1 != 1
+False
+```
 
-        #More string methods
-        x = "Hello".upper() #convert to upper case
-        x = "Hello".lower() #Convert to lower case
-        x = "Hello".isupper() # returns True if all letters are upper case
-        x = "Hello".islower() # returns True if all letters are lower case
-        x = "Hello".startswith("H") # True
-        x = "Hello".endswith("o") # True
-        x = "Hello".isalpha # True if string is alphabetical
-        x = "Hello   ".strip() #strip blank spaces from beginning or end
-        x = "spamspamHellospamspam".strip("maps") #strip specific character(s) from beginning or end -- strips all characters in any order
-        x = ', '.join("cats", "dogs") # cats, dogs
-        x = "Birdman".replace("Bird", "Bat" # Batman
-        )
-        #more string methods include rstrip(), lstrip(), rjust(), ljust()
-    ```
+## Conditionals...using in keyword as well as booleans
 
-- Lists
+```python
+if "ab" in "abcd":
+    print("Pattern found")
+elif(1 >= 100):
+    print("This code will never be reached")
 
-    ```python
-        lst =  [0, 1, 2, 3, 4]
+Pattern found
 
-        for l in lst:
-            print(l)
+lst =  [0, 1, 2, 3, 4]
+if 3 in lst:
+    print("Got it")
 
-        # append a value to the list, in place
-        # does not return a value
-        lst.append(5)
+Got it
+```
 
-        # sum() will add list items together... must be numeric values
-        print(sum([1 , 3,  5]))
-    ```
+## The range() function
 
-- Get length of list or string
+```python
+for i in range(5): #1-5
+    print(i)
 
-    ```python
-        lst =  [0, 1, 2, 3, 4]
-        len(lst)
-    ```
-- List comprehension
-    
-    A good blog post https://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
+for i in range(2,5): #2-5
+    print(i)
 
-    ```python
-    # An existing list ... you can also use a tuple or another iterable
-    numbers = [1, 2, 3]
+for i in range(1,10,2): #start at 1, end at 10, and iterate by 2
+    print(i)
+```
 
-    # A quick way of building a new list
-    # newVariable = [formula loop conditional(optional)]
-    n2 = [number for number in numbers]
-    print(n2) # [1, 2, 3]
-    
-    # SAME AS
-    n2 = []
-    for number in numbers:
-        n2.append(number)
+## Random numbers
 
-    print(n2) # [1, 2, 3]
-    
-    # More examples
-    n2 = [number * 2 for number in numbers]
-    print(n2) # [2, 4, 6]
+```python
+import random
+random.randint(1,100)
+```
 
-    numbers = [1, 2, 3]
-    n2 = [str(number/4) for number in numbers]
-    print(n2) # ['0.25', '0.5', '0.75']
+## String methods
 
-    n2 = [("This is a number: " + str(number**10)) for number in numbers]
-    print(n2) # ['This is a number: 1', 'This is a number: 1024', 'This is a number: 59049']
+```python
+#String are immutable! (cannot be changed)
 
-    #Creates a list of tuples
-    n2 = [(("This is a number: " + str(number**10)), number*35, "Stuff") for number in numbers]
-    print(n2) # [('This is a number: 1', 35, 'Stuff'), ('This is a number: 1024', 70, 'Stuff'), ('This is a number: 59049', 105, 'Stuff')]
+#Split
+lst = "1,2,3,4,5".split(",") # ['1', '2', '3', '4', '5']
 
-    n2 = [number**4 for number in numbers if (number == 1 or number == 3)]
-    print(n2) # [1, 81]
+#More string methods
+x = "Hello".upper() #convert to upper case
+x = "Hello".lower() #Convert to lower case
+x = "Hello".isupper() # returns True if all letters are upper case
+x = "Hello".islower() # returns True if all letters are lower case
+x = "Hello".startswith("H") # True
+x = "Hello".endswith("o") # True
+x = "Hello".isalpha # True if string is alphabetical
+x = "Hello   ".strip() #strip blank spaces from beginning or end
+x = "spamspamHellospamspam".strip("maps") #strip specific character(s) from beginning or end - strips all characters in any order
+x = ', '.join("cats", "dogs") # cats, dogs
+x = "Birdman".replace("Bird", "Bat" # Batman
+)
+#more string methods include rstrip(), lstrip(), rjust(), ljust()
+```
 
-    #Nested loop - this one creates a list of tuples
-    numbers = [1, 2, 3]
-    words = ["one","Two", "three"]
-    list2 = [(n, w) for n in numbers for w in words]
-    print(list2) # [(1, 'one'), (1, 'Two'), (1, 'three'), (2, 'one'), (2, 'Two'), (2, 'three'), (3, 'one'), (3, 'Two'), (3, 'three')]
+## Lists
 
-    #Nested loop - this one creates a list of dictionaries
-    numbers = [1, 2, 3]
-    words = ["one","Two", "three"]
-    list2 = [{"number":n, "word":w} for n in numbers for w in words]
-    print(list2) # [{'number': 1, 'word': 'one'}, {'number': 1, 'word': 'Two'}, {'number': 1, 'word': 'three'}, {'number': 2, 'word': 'one'}, {'number': 2, 'word': 'Two'}, {'number': 2, 'word': 'three'}, {'number': 3, 'word': 'one'}, {'number': 3, 'word': 'Two'}, {'number': 3, 'word': 'three'}]
+```python
+lst =  [0, 1, 2, 3, 4]
 
-    ```
-- Dictionaries
+for l in lst:
+    print(l)
 
-    ```python
-    stuff = {'id': 3, 'thing': 4}
-    stuff1 = {'id1': 3, 'thing1': 4}
-    stuff.update(stuff1)
-    print(stuff) # {'id': 3, 'thing': 4, 'id1': 3, 'thing1': 4}
+# append a value to the list, in place
+# does not return a value
+lst.append(5)
 
-    #Dictionary methods
-    stuff.keys()
-    stuff.values()
-    stuff.items()
+# sum() will add list items together... must be numeric values
+print(sum([1 , 3,  5]))
+```
 
-    # iterate through dictionary
-    for key, value in stuff.items():
-        
-    ```
+## Get length of list or string
 
-- Dictionary comprehension
-    - https://www.datacamp.com/community/tutorials/python-dictionary-comprehension?
-    
-    ```python
-    dict_variable = {key:value for (key,value) in dictonary.items()}
-    ```
-- Sets
+```python
+lst =  [0, 1, 2, 3, 4]
+len(lst)
+```
 
-    ```python
-    # initialize an empty set
-      y = set() # Cannot initialize like {}
+## List comprehension
 
-    # items cannot repeat in a set -- if added, they will be ignored
-    x = {1 , 2, 3, 4, 4}
-    print(x) # {1, 2, 3, 4}
+[A good blog post](https://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/)
 
-    y = {1, 2, 5, 7, 9}
-     # intersection()
-    print(x.intersection(y)) #{1, 2}
+```python
+# An existing list ... you can also use a tuple or another iterable
+numbers = [1, 2, 3]
 
-    # add value
-    x.add(9)
+# A quick way of building a new list
+# newVariable = [formula loop conditional(optional)]
+n2 = [number for number in numbers]
+print(n2) # [1, 2, 3]
 
-    # code block using sets and len method
-    values = set()
-    while len(values) < 6:
-        values.add(random.randint(1,20))
-    ```
+# SAME AS
+n2 = []
+for number in numbers:
+    n2.append(number)
 
-- Set comprehension
-    - Basically identical to list comprehension except result is a set
+print(n2) # [1, 2, 3]
+
+# More examples
+n2 = [number * 2 for number in numbers]
+print(n2) # [2, 4, 6]
+
+numbers = [1, 2, 3]
+n2 = [str(number/4) for number in numbers]
+print(n2) # ['0.25', '0.5', '0.75']
+
+n2 = [("This is a number: " + str(number**10)) for number in numbers]
+print(n2) # ['This is a number: 1', 'This is a number: 1024', 'This is a number: 59049']
+
+#Creates a list of tuples
+n2 = [(("This is a number: " + str(number**10)), number*35, "Stuff") for number in numbers]
+print(n2) # [('This is a number: 1', 35, 'Stuff'), ('This is a number: 1024', 70, 'Stuff'), ('This is a number: 59049', 105, 'Stuff')]
+
+n2 = [number**4 for number in numbers if (number == 1 or number == 3)]
+print(n2) # [1, 81]
+
+#Nested loop - this one creates a list of tuples
+numbers = [1, 2, 3]
+words = ["one","Two", "three"]
+list2 = [(n, w) for n in numbers for w in words]
+print(list2) # [(1, 'one'), (1, 'Two'), (1, 'three'), (2, 'one'), (2, 'Two'), (2, 'three'), (3, 'one'), (3, 'Two'), (3, 'three')]
+
+#Nested loop - this one creates a list of dictionaries
+numbers = [1, 2, 3]
+words = ["one","Two", "three"]
+list2 = [{"number":n, "word":w} for n in numbers for w in words]
+print(list2) # [{'number': 1, 'word': 'one'}, {'number': 1, 'word': 'Two'}, {'number': 1, 'word': 'three'}, {'number': 2, 'word': 'one'}, {'number': 2, 'word': 'Two'}, {'number': 2, 'word': 'three'}, {'number': 3, 'word': 'one'}, {'number': 3, 'word': 'Two'}, {'number': 3, 'word': 'three'}]
+
+```
+
+## Dictionaries
+
+```python
+stuff = {'id': 3, 'thing': 4}
+stuff1 = {'id1': 3, 'thing1': 4}
+stuff.update(stuff1)
+print(stuff) # {'id': 3, 'thing': 4, 'id1': 3, 'thing1': 4}
+
+#Dictionary methods
+stuff.keys()
+stuff.values()
+stuff.items()
+
+# iterate through dictionary
+for key, value in stuff.items():
+
+```
+
+## Dictionary comprehension
+
+- https://www.datacamp.com/community/tutorials/python-dictionary-comprehension?
+
+```python
+dict_variable = {key:value for (key,value) in dictonary.items()}
+```
+
+## Sets
+
+```python
+# initialize an empty set
+    y = set() # Cannot initialize like {}
+
+# items cannot repeat in a set -- if added, they will be ignored
+x = {1 , 2, 3, 4, 4}
+print(x) # {1, 2, 3, 4}
+
+y = {1, 2, 5, 7, 9}
+    # intersection()
+print(x.intersection(y)) #{1, 2}
+
+# add value
+x.add(9)
+
+# code block using sets and len method
+values = set()
+while len(values) < 6:
+    values.add(random.randint(1,20))
+```
+
+## Set comprehension
+
+- Basically identical to list comprehension except result is a set
+
+## Classes
+
+```python
+class User:
+     # set parameters for object
+    def __init__(self, name):
+        self.name = name
+        self.movies = []
+
+    # define a string that represents the object
+    def __repr__(self):
+        return "<User {}>".format(self.name)
+```
+
+## Lambda functions
+
+```python
+# Lamda functions are unnamed functions
+# Each element is passed to the function and processed
+{lamda x '''the parameter name''': x.watched '''processing''',  self.movies '''the parameter value for x'''}
+```
+
+# Get path of current script and Get CWD
+
+```python
+#########################################################
+#Set script path and remove trailing \ if path is c:\
+#########################################################
+import os, sys
+
+scriptPath = os.path.dirname(sys.argv[0])
+if scriptPath[-1:]=='\\':
+    scriptPath = scriptPath.strip('\\')
+
+#Get CWD
+os.getcwd()
+```
