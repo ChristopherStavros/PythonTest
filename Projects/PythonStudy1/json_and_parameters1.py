@@ -1,10 +1,10 @@
 import json, csv, sys
 
 #variables
-filePath1 = "C:/_Repositories/PythonTest/Data/test1.json"
-filePath2 = "C:/_Repositories/PythonTest/Data/test2.json"
-filePath3 = "C:/_Repositories/PythonTest/Data/test1.csv"
-filePath4 = "C:/_Repositories/PythonTest/Data/employees.json"
+filePath1 = "C:/_Repositories/Python_Study/Data/test1.json"
+filePath2 = "C:/_Repositories/Python_Study/Data/test2.json"
+filePath3 = "C:/_Repositories/Python_Study/Data/test1.csv"
+filePath4 = "C:/_Repositories/Python_Study/Data/employees.json"
 
 ###########
 # functions
@@ -51,25 +51,22 @@ def update_json_data(filePath1):
 
 
 def combine_json(filePath1, filePath2):
-    jsonFile = open(filePath1, "r+")
-    fileData = json.load(jsonFile)
+    with open(filePath1, "r") as jsonFile:
+        fileData = json.load(jsonFile)
 
-    jsonFile2 = open(filePath2, "r+")
-    fileData2 = json.load(jsonFile2)
+    with open(filePath2, "r") as jsonFile2:
+        fileData2 = json.load(jsonFile2)
+    
     merged_dict2 = {**fileData, **fileData2}    
 
     print("Merged")
     print(merged_dict2)
-    print(type(merged_dict2))
-    print(type(merged_dict2["executives"]))
-    print(type(merged_dict2["executives"][1]))
-    print(type(merged_dict2["executives"][1]["ID"]))
-    print(merged_dict2["executives"][1])
-
-    jsonFile.close
-    jsonFile2.close
-
-    return
+    #print(type(merged_dict2))
+    #print(type(merged_dict2["executives"]))
+    #print(type(merged_dict2["executives"][1]))
+    #print(type(merged_dict2["executives"][1]["ID"]))
+    #print(merged_dict2["executives"][1])
+    
 
 def combine_data(filePath1, filePath2, filePath3):
     # get JSON data from files

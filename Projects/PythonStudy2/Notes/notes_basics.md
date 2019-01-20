@@ -1,5 +1,11 @@
 # Part 1 - Basics
 
+## Resources
+
+- [Python 3 Documentation](https://docs.python.org/3/)
+- [Tutorial](https://docs.python.org/3/tutorial/index.html)
+- [Python to Java](http://home.wlu.edu/~lambertk/pythontojava/)
+
 ## Comments
 
 ```python
@@ -21,17 +27,6 @@ Hello
 '''
 ```
 
-## Basic math
-
-```python
->>> 2 + 3
-5
->>> 2 * 3
-6
->>> 2 ** 3
-8
-```
-
 ## Variables and multiple variable assignment
 
 ```python
@@ -48,17 +43,16 @@ x, y = returnTwoValues()
 
 ```
 
-## type()
+## The type() method
 
 ```python
 >>> type(days)
 <class 'int'>
 >>> type(str(days))
 <class 'str'>
-
 ```
 
-## type conversion
+## Type conversion
 
 ```python
 # Convert an int to a string
@@ -71,7 +65,7 @@ int("5")
 There are 1825 days.
 ```
 
-## input()
+## Get user input from terminal - input()
 
 ```python
 stuff = input("What is your input:  ")
@@ -123,13 +117,13 @@ Got it
 ## The range() function
 
 ```python
-for i in range(5): #1-5
+for i in range(5): #0-4
     print(i)
 
-for i in range(2,5): #2-5
+for i in range(2,5): #start at index 2, end prior to index 5
     print(i)
 
-for i in range(1,10,2): #start at 1, end at 10, and iterate by 2
+for i in range(1,10): #start at index 1, end prior to index 10, and iterate by 2
     print(i)
 ```
 
@@ -314,7 +308,7 @@ class User:
 {lamda x '''the parameter name''': x.watched '''processing''',  self.movies '''the parameter value for x'''}
 ```
 
-# Get path of current script and Get CWD
+## Get path of current script
 
 ```python
 #########################################################
@@ -325,7 +319,140 @@ import os, sys
 scriptPath = os.path.dirname(sys.argv[0])
 if scriptPath[-1:]=='\\':
     scriptPath = scriptPath.strip('\\')
+```
 
-#Get CWD
+## Get CWD
+
+```python
 os.getcwd()
+```
+
+## JSON
+
+**Note:** JSON can be represented by dictionaries (and lists) in Python
+
+```json
+{
+    "executives": [
+        {
+            "ID": 1,
+            "firstName": "Steez",
+            "lastName": "McQueez",
+            "position": "CEO",
+            "location": "Hotlanta",
+            "species": "strigoi"
+        },
+        {
+            "ID": 2,
+            "firstName": "Mister",
+            "lastName": "CheesySneasel",
+            "position": "CISO",
+            "location": "Hotlanta",
+            "species": "vampire"
+        }
+    ]
+}
+```
+
+## Read JSON
+
+Basic
+
+```python
+import json
+
+with open('my_file.json', 'r') as f:
+    json_data = json.load(f)
+```
+
+Using try/catch
+
+```python
+with open(filename, 'r') as f:
+    try:
+        json_data = json.load(f)
+    except json.decoder.JSONDecodeError:
+        print("Invalid JSON file")
+        return
+```
+
+## Write JSON
+
+```python
+import json
+
+with open('my_file.json', 'w') as f:
+    json.dump(json_data, f)
+```
+
+## Named parameters
+
+Named parameters can be passed to a method or a function
+
+```python
+cls(name = json_data['name'], genre = json_data['genre'], watched = json_data['watched'])
+```
+
+Example
+
+```python
+class Movie:
+    #set parameters for object
+    def __init__(self, name, genre, watched):
+        #Define the class parameters
+        self.name = name
+        self.genre = genre
+        self.watched = watched
+    # define a string that represents the object
+    def __repr__(self):
+        return "<Movie {}>".format(self.name)
+
+    def json(self):
+        return {
+            'name' : self.name,
+            'genre' : self.genre,
+            'watched' : self.watched
+        }
+
+    @classmethod
+    def from_json(cls, json_data):
+        return cls(name = json_data['name'], genre = json_data['genre'], watched = json_data['watched'])
+```
+
+**Note:** The first passed parameter can be ordered, however once a named parameter is passed all remaining paramters must be named
+
+
+## Argument unpacking
+
+Pass a set of named parameters
+
+```python
+**dictionary_data
+```
+
+Example
+
+```python
+class Movie:
+    #set parameters for object
+    def __init__(self, name, genre, watched):
+        #Define the class parameters
+        self.name = name
+        self.genre = genre
+        self.watched = watched
+
+    # define a string that represents the object
+    def __repr__(self):
+        return "<Movie {}>".format(self.name)
+
+    def json(self):
+        return {
+            'name' : self.name,
+            'genre' : self.genre,
+            'watched' : self.watched
+        }
+
+    @classmethod
+    def from_json(cls, json_data):
+        return cls(**json_data)
 ```
