@@ -1,8 +1,13 @@
-#!user/bin/env python
-
 import subprocess
 
-subprocess.call("ifconfig eth0 down", shell=True)
-subprocess.call("ifconfig eth0 hw ether 00:11:22:33:44:66", shell=True)
-subprocess.call("ifconfig eth0 up", shell=True)
+variables ={
+    "interface" : "eth0",
+    "new_mac" : "00:11:22:33:44:67"
+}
+
+print("[+] Changing MAC address for {interface} to {new_mac}".format(**variables))
+
+subprocess.call("ifconfig {interface} down".format(**variables), shell=True)
+subprocess.call("ifconfig {interface} hw ether {new_mac}".format(**variables), shell=True)
+subprocess.call("ifconfig {interface} up".format(**variables), shell=True)
 
