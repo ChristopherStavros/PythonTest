@@ -4,6 +4,19 @@
 
 ## Basic Linux Commands
 
+Shutdown and restart
+
+```bash
+#Restart
+
+restart
+shutdown -r now
+
+#Shutdown
+
+shutdown -P now
+```
+
 Clear screen
 
 ```bash
@@ -78,9 +91,11 @@ rm my_file
 
 ```bash
 # Get list of programs available for install
+
 apt-get update
 
 # Install a program
+
 apt-get install terminator
 ```
 
@@ -100,3 +115,30 @@ apt-get install terminator
         deb http://old.kali.org/kali moto main non-free contrib
         # For source package access, uncomment the following line
         # deb-src http://old.kali.org/kali moto main non-free contrib
+
+## Network
+
+Get network information
+
+```bash
+ifconfig
+```
+
+Disable/Enable network interface
+
+```bash
+# For the first parameter, specify the netwrok interface you want to change
+
+ifconfig eth0 down
+
+ifconfig eth0 up
+```
+
+Change MAC address
+
+```bash
+ifconfig eth0 down
+ifconfig eth0 hw ether 00:11:22:33:44:55
+ifconfig eth0 up
+```
+
