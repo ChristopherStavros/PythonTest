@@ -6,6 +6,22 @@
 - [Tutorial](https://docs.python.org/3/tutorial/index.html)
 - [Python to Java](http://home.wlu.edu/~lambertk/pythontojava/)
 
+## Shebang
+
+First line in script to specific environment for script to run - OPTIONAL
+
+Linux
+
+```python
+#!/user/bin/env python3
+```
+
+Windows
+
+```python
+#!/python
+```
+
 ## Comments
 
 ```python
@@ -125,6 +141,18 @@ for i in range(2,5): #start at index 2, end prior to index 5
 
 for i in range(1,10): #start at index 1, end prior to index 10, and iterate by 2
     print(i)
+```
+
+## Import modules
+
+```python
+import random
+random.randint(0,100)
+
+# OR
+
+from random import *
+randint(0,100)
 ```
 
 ## Random numbers
