@@ -87,6 +87,12 @@ Remove file
 rm my_file
 ```
 
+Copy file
+
+```bash
+cp folders.sh Repostories/general/
+```
+
 ## Installing programs
 
 ```bash
