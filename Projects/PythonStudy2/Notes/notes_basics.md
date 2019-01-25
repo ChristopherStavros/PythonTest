@@ -485,6 +485,49 @@ class Movie:
         return cls(**json_data)
 ```
 
-### Virtual Environments
+### Virtual Environments - venv
 
-[Python Docs - venv](https://docs.python.org/3/tutorial/venv.html)
+- [Python Docs - venv](https://docs.python.org/3/tutorial/venv.html)
+- [virtualenv - Older than 3.3](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)
+- [venv  -3.6 and newer](https://docs.python.org/3/library/venv.html)
+- [Selecting Virtual Environemnts in VS Code](https://code.visualstudio.com/docs/python/environments)
+- [Specify venv path in vsode](https://www.reddit.com/r/vscode/comments/9nku97/using_a_virtualenv/)
+
+It is a best practive to create a virtual environment for each project.  Create the venv if a **separate folder** within your project root.
+
+```powershell
+# Create virtual environment in project folder
+python -m venv c:\path\to\myenv
+```
+
+Example
+
+```powershell
+PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1> python -m venv C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1
+PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1> cd .\Scripts\
+PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> .\Activate.ps1
+(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts>
+
+(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip list
+Package    Version
+---------- -------
+pip        10.0.1
+setuptools 39.0.1
+
+(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip install psycopg2
+Collecting psycopg2
+  Using cached https://files.pythonhosted.org/packages/40/30/b336d6ac72f91234cd6e2ec12e87c4a2d940112eda994a3f103faae26c15/psycopg2-2.7.7-cp37-cp37m-win_amd64.whl
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.7.7
+
+(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip list
+Package    Version
+---------- -------
+pip        10.0.1
+psycopg2   2.7.7
+setuptools 39.0.1
+```
+
+Activate/deactivate venv
+
+**NOTE:** You don’t specifically need to activate an environment; activation just prepends the virtual environment’s binary directory to your path, so that “python” invokes the virtual environment’s Python interpreter and you can run installed scripts without having to use their full path.
