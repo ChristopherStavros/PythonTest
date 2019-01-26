@@ -4,7 +4,6 @@
 
 - [Python 3 Documentation](https://docs.python.org/3/)
 - [Tutorial](https://docs.python.org/3/tutorial/index.html)
-- [Python to Java](http://home.wlu.edu/~lambertk/pythontojava/)
 
 ## Shebang
 
@@ -321,7 +320,7 @@ class User:
      # set parameters for object
     def __init__(self, name):
         self.name = name
-        self.movies = []
+        self.items = []
 
     # define a string that represents the object
     def __repr__(self):
@@ -339,9 +338,7 @@ class User:
 ## Get path of current script
 
 ```python
-#########################################################
 #Set script path and remove trailing \ if path is c:\
-#########################################################
 import os, sys
 
 scriptPath = os.path.dirname(sys.argv[0])
@@ -449,7 +446,6 @@ class Movie:
 
 **Note:** The first passed parameter can be ordered, however once a named parameter is passed all remaining paramters must be named
 
-
 ## Argument unpacking
 
 Pass a set of named parameters
@@ -507,27 +503,12 @@ PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1> python -m venv
 PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1> cd .\Scripts\
 PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> .\Activate.ps1
 (venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts>
-
-(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip list
-Package    Version
----------- -------
-pip        10.0.1
-setuptools 39.0.1
-
-(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip install psycopg2
-Collecting psycopg2
-  Using cached https://files.pythonhosted.org/packages/40/30/b336d6ac72f91234cd6e2ec12e87c4a2d940112eda994a3f103faae26c15/psycopg2-2.7.7-cp37-cp37m-win_amd64.whl
-Installing collected packages: psycopg2
-Successfully installed psycopg2-2.7.7
-
-(venvTest1) PS C:\_Repositories\Python_Study\Projects\PythonStudy2\venvTest1\Scripts> pip list
-Package    Version
----------- -------
-pip        10.0.1
-psycopg2   2.7.7
-setuptools 39.0.1
 ```
 
 Activate/deactivate venv
 
 **NOTE:** You don’t specifically need to activate an environment; activation just prepends the virtual environment’s binary directory to your path, so that “python” invokes the virtual environment’s Python interpreter and you can run installed scripts without having to use their full path.
+
+## Additional resources
+
+[Python to Java](http://home.wlu.edu/~lambertk/pythontojava/)
