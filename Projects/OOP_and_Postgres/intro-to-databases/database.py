@@ -1,15 +1,19 @@
 from psycopg2 import pool
-                                           
-class ConnectionPool:
+
+connection_pool = pool.SimpleConnectionPool(1, 1,  #maxconn...number of initial connections, max number of connections pool can handle
+                                    host = "localhost", 
+                                    database="learning", 
+                                    user = "postgres", 
+                                    password = "P@ssw0rd")
+
+class ConnectionFromPool:
     def __init__(self):
-        connection_pool = pool.SimpleConnectionPool(1, 1,  #maxconn...number of initial connections, max number of connections pool can handle
-                                            host = "localhost", 
-                                            database="learning", 
-                                            user = "postgres", 
-                                            password = "P@ssw0rd")
+        self.connection = None
+
     def __enter__(self):
-        return self.connection_pool.getconn()
+        self.connection = connection_pool.getconn()
+        return self.connection
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        # We really should be returning the connections, but how?
-        pass
+        self.connection.commit()
+        connection_pool.putconn(self.connection)
