@@ -29,3 +29,6 @@ for m in maps:
 # OUTPUT
 word = input("Enter word: ")
 print(get_def(word))
+
+for m in [1,2,3]:
+    
