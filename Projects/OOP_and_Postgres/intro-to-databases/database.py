@@ -2,26 +2,27 @@ from psycopg2 import pool
 
 class Database:
 
-    # This value belongs to ALL objects of type Database
-    connection_pool = None
+    # This value belongs to ALL objects of type Database - is set to private
+    __connection_pool = None
 
+    # All of these static methods could be defined as classmethods as well (using cls instead of Database)
     # This does NOT get executed automatically as with the __init__ method
     @staticmethod
-    def initialise():
-        Database.connection_pool = pool.SimpleConnectionPool(1, 10,  #maxconn...number of initial connections, max number of connections pool can handle
-                                    host = "localhost", 
-                                    database="learning", 
-                                    user = "postgres", 
-                                    password = "P@ssw0rd")
-    ###  SAME
-    #  @classmethod
-    # def initialise(cls):
-    #     cls.connection_pool = pool.SimpleConnectionPool(1, 10,  #maxconn...number of initial connections, max number of connections pool can handle
-    #                                 host = "localhost", 
-    #                                 database="learning", 
-    #                                 user = "postgres", 
-    #                                 password = "P@ssw0rd")
+    def initialise(**kwargs):
+        Database.__connection_pool = pool.SimpleConnectionPool(1, 
+                                                              10,
+                                                              **kwargs)
+    @staticmethod
+    def get_connection():
+        return Database.__connection_pool.getconn()
 
+    @staticmethod
+    def return_connection(connection):
+        return Database.__connection_pool.putconn(connection)
+
+    @staticmethod
+    def close_all_connections():
+        return Database.__connection_pool.closeall()
 
 class CursorFromConnectionFromPool:
     def __init__(self):
@@ -29,7 +30,7 @@ class CursorFromConnectionFromPool:
         self.cursor = None
  
     def __enter__(self):
-        self.connection = connection_pool.getconn()
+        self.connection = Database.get_connection()
         self.cursor = self.connection.cursor()
         return self.cursor
 
@@ -39,4 +40,4 @@ class CursorFromConnectionFromPool:
         else:
             self.cursor.close()
             self.connection.commit()
-        connection_pool.putconn(self.connection)
+        Database.return_connection(self.connection)

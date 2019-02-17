@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS learning.users;
 
-CREATE TABLE users(
+CREATE TABLE learning.users(
     id SERIAL PRIMARY KEY,
     email character VARYING(255),
     first_name character VARYING(255),

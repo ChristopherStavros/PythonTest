@@ -9,6 +9,10 @@ if script_path[-1:]=='\\':
 
 '''functions'''
 def dir(folder):
+    lst = []
     for foldername, subfolder, filenames in os.walk(folder):
         for file in filenames:
-            print(os.path.join(foldername, file)) # dir or Get-ChildItem style return :)
+            f = os.path.join(foldername, file)
+            lst.append(f)
+            print(f)
+    return lst
