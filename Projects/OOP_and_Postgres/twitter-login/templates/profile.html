@@ -3,18 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Coiny">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>User Profile</title>
 </head>
 
 <body>
-<!-- <h1>{{ user.screen_name }}</h1> -->
-<p><a href="{{ url_for('search') }}">Search with Twitter</a></p>
 
-<form action = "{{ url_for('search') }}">
-    <label for="q">Twitter Search</label>
-    <input type="text" name="q" id="q" placeholder="Your Twitter search">
-        <button type="submit">Search</button>
-</form>
+        <!-- <h1>{{ user.screen_name }}</h1> -->
+        <!-- <p><a href="{{ url_for('search') }}">Search with Twitter</a></p> -->
+
+        <!-- <form action = "{{ url_for('search') }}">
+            <label for="q">Twitter Search</label>
+            <input type="text" name="q" id="q" placeholder="Your Twitter search">
+                <button type="submit">Search</button>
+        </form> -->
+        
+    <!-- <div class="container justify-content-center">
+        <div class="jumbotron my-auto ">
+            <form action = "{{ url_for('search') }}">
+                <div class="input-group col-md-12">
+                        <input class="form-control py-2 border-right-0 border" type="text" name="q" placeholder="Your Twitter search">
+                        <span class="input-group-append">
+                            <button class="btn btn-outline-secondary border-left-0 border" type="submit">
+                                    <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ url_for('homepage') }}">{{ user.screen_name }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('homepage') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" action = "{{ url_for('search') }}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+    </nav>
+    <div class="container" id="search_results">
+            <ul class="list-group">
+                {% set css_class = 'list-group-item-info' %}
+              
+                {% for element in content %}
+                  {% if element['label'] == 'neg' %}
+                    {% set css_class = 'list-group-item-danger' %}
+                  {% elif element['label'] == 'pos' %}
+                    {% set css_class = 'list-group-item-success' %}
+                  {% endif %}
+                  <li class="list-group-item {{ css_class}}">{{ element['tweet'] }} </li>
+                    <!-- <li class="list-group-item">{{ element }} </li> -->
+                    <!-- <li class="list-group-item"><a href="{{ element }}">{{ element }}</a> </li> -->
+                {% endfor %}
+            </ul>
+        </div>
+    
 </body>
+
 </html>
