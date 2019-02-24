@@ -6,6 +6,9 @@ body{
 .list-group {
     margin-top: 1rem;
 }
+.list-group-item a{
+    color: black;
+}
 .navbar{
     font-family: 'Coiny', serif;
 }

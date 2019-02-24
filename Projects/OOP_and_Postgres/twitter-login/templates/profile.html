@@ -63,7 +63,9 @@
                   {% elif element['label'] == 'pos' %}
                     {% set css_class = 'list-group-item-success' %}
                   {% endif %}
-                  <li class="list-group-item {{ css_class}}">{{ element['tweet'] }} </li>
+                  {% set lnk = 'https://twitter.com/statuses/' ~element['id'] %}
+                  <li class="list-group-item {{ css_class}}"><a href="{{ lnk }}">{{ element['tweet'] }} </a></li> 
+                  <!-- <a href="{{ lnk }}">{{ element['tweet'] }} </a></li> -->
                     <!-- <li class="list-group-item">{{ element }} </li> -->
                     <!-- <li class="list-group-item"><a href="{{ element }}">{{ element }}</a> </li> -->
                 {% endfor %}

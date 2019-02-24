@@ -1,0 +1,49 @@
+body{
+    /* background-image: url(https://www.humanesociety.org/sites/default/files/styles/2000x950/public/2018/06/cat-217679.jpg?h=c4ed616d&itok=YU2ahGqn);
+    background-repeat: no-repeat; */
+    background-color:whitesmoke
+}
+.list-group {
+    margin-top: 1rem;
+    /* list-style: none; */
+}
+.list-group-item a{
+    color: black;
+}
+.navbar{
+    font-family: 'Coiny', serif;
+}
+.jumbotron {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.jumbotron a{
+    color: azure;    
+}
+.input-group{
+    text-align:center;
+}
+.form-inline{
+    text-align: center; 
+}
+#search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#login h1{
+    /* font-family: 'Tangerine', serif; */
+    font-family: 'Tangerine', serif;
+}
+.container{
+    text-align: left;
+    color: black;
+    font-family: 'Roboto', serif;
+    font-size: 1rem;
+}
+.list-group{
+    padding: 1rem;
+}

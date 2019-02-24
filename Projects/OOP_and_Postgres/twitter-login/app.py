@@ -55,7 +55,7 @@ def search():
     query = request.args.get('q')
     tweets = g.user.twitter_request('https://api.twitter.com/1.1/search/tweets.json?q={}'.format(query))
 
-    tweet_texts = [{'tweet': tweet['text'], 'label': 'neutral'} for tweet in tweets['statuses']]
+    tweet_texts = [{'tweet': tweet['text'], 'id': tweet['id'], 'label': 'neutral'} for tweet in tweets['statuses']]
 
     for tweet in tweet_texts:
         r = requests.post('http://text-processing.com/api/sentiment/', data={"text": tweet['tweet']})
@@ -63,17 +63,6 @@ def search():
         label = json_response['label']
         tweet['label'] = label
 
-    # tweet_texts = [tweet['entities']['urls'] for tweet in tweets['statuses']]
-
-    # tweet_links = []
-    # for tweet in tweets['statuses']:
-    #     if 'RT' not in tweet['text']:
-    #         tweet_links.append(tweet['entities']['urls'][0]['url'])
-    # return render_template('profile.html', content = tweet_links, user = g.user )
-    
-    # with open('tweets.json', 'w') as f:
-    #     json.dump(tweets, f)
-    
     return render_template('profile.html', content = tweet_texts, user = g.user )
     #return render_template('search.html', content = tweet_texts )
 
