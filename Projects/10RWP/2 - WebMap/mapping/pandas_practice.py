@@ -49,5 +49,5 @@ map = folium.Map(location=SF_COORDINATES, zoom_start=12)
 # add a marker for every record in the filtered data, use a clustered view
 for each in crimedata[0:MAX_RECORDS].iterrows():
     pass
-    
-display(map)
+
+display(map)map = folium.Map(location=SF_COORDINATES, zoom_start=12)

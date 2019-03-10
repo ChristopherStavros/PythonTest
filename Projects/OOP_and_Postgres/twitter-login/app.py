@@ -6,7 +6,7 @@ import secrets
 import json # dumping to json file
 import requests
                 
-Database.initialise(**secrets.database_login)
+Database.initialise(**secrets.database_login, database='learning')
 
 app = Flask(__name__)
 app.secret_key = '1234'
