@@ -7,7 +7,7 @@ class Currency:
     def set_amount(self, amount):
         self.amount = amount
 
-    def in_currency(self, amount):
+    def in_currency(self, amount): # from usd
         return amount / self.exchange_to_usd
     
     def to_usd(self, amount = None):
@@ -32,6 +32,7 @@ class Currency:
 
 pounds = Currency("GBP", 1.21)
 pounds.set_amount(1000)
+print(pounds.in_currency(1000))
 euros = Currency("EUR", 1.07)
 euros.set_amount(1000)
 

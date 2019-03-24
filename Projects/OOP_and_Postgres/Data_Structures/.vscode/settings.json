@@ -1,0 +1,12 @@
+{
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./3_stack",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestEnabled": true
+}
