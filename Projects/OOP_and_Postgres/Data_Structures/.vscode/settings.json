@@ -2,7 +2,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        "./3_stack",
+        "./4_binary_tree",
         "-p",
         "test*.py"
     ],
