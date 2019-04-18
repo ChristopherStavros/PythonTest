@@ -1,0 +1,24 @@
+body{
+    background-repeat: no-repeat;
+    background-color: white;
+}
+table{
+    margin-top: 2em;
+}
+.container{
+    display: flex;
+}
+.jumbotron {
+    /* background-color: rgb(22, 22, 22); */
+    /* background-image: url(https://www.humanesociety.org/sites/default/files/styles/2000x950/public/2018/06/cat-217679.jpg?h=c4ed616d&itok=YU2ahGqn); */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+}
+.bodyLinks{
+    color: white;
+    font-family: 'Cute Font','Serif';
+    font-size: 3em; 
+}
