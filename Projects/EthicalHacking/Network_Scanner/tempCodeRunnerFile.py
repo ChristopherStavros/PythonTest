@@ -1,0 +1,1 @@
+answered, unanswered = scapy.srp(arp_request_broadcast, timeout = 1)
