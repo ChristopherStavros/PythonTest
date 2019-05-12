@@ -1,1 +1,1 @@
-answered, unanswered = scapy.srp(arp_request_broadcast, timeout = 1)
+from scapy.all import *
